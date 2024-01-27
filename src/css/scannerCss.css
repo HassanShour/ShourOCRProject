@@ -1,0 +1,85 @@
+.fingerprint {
+    position: relative;
+    width: 750px;
+    height: 500px;
+    background-image: url("file:///C:/Users/Anduser/Desktop/Mask%20Group.png");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+  }
+  .DisplayImage{
+    position: relative;
+    width: 750px;
+    height: 500px;
+    background-image: url("file:///C:/Users/Anduser/Desktop/Mask%20Group.png");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  @media (max-width: 768px) {
+    .fingerprint {
+      height: 220px;
+    }
+    .DisplayImage {
+      height: 220px;
+    }
+  }
+  
+  .fingerprint img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .fingerprint.scanning::after {
+    content: "";
+    position: absolute;
+    min-width: 100%;
+    height: 12px;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.9)
+    );
+    animation: scanning 2.8s linear infinite;
+  }
+  
+  /* .fingerprint.scanning::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    background-image: linear-gradient(to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, .8));
+    animation: scanning-right 2.8s linear infinite;
+  } */
+  
+  @keyframes scanning {
+    100% {
+      transform: translate(0, calc(500px - 12px));
+    }
+  }
+  
+  @keyframes scanning-right {
+    100% {
+      transform: translate(calc(500px - 12px), 0);
+    }
+  }
+  
+  canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-radius: 100%;
+    z-index: 1;
+  }
+  
